@@ -54,7 +54,7 @@
                 return require("crypto")['randomBytes'](len);
             } catch (e) {}
         /* WCA */ try {
-            var a; global['crypto']['getRandomValues'](a = new Uint32Array(len));
+            var a; (window || global)['crypto']['getRandomValues'](a = new Uint32Array(len));
             return Array.prototype.slice.call(a);
         } catch (e) {}
         /* fallback */ if (!randomFallback)
